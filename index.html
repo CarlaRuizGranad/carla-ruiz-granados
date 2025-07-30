@@ -1,72 +1,62 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Carla Ruiz Granados</title>
-  <style>
-    body {
-      background-color: #111;
-      color: #f5f5f5;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 2rem;
-      line-height: 1.7;
-      max-width: 750px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    h1, h2 {
-      text-align: center;
-      font-weight: bold;
-      letter-spacing: 0.05em;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    h2 {
-      font-size: 1.5rem;
-      margin-top: 2rem;
-    }
-    p {
-      margin-bottom: 1rem;
-    }
-    blockquote {
-      border-left: 4px solid #888;
-      padding-left: 1rem;
-      color: #ccc;
-      font-style: italic;
-      margin: 1.5rem 0;
-    }
-    button {
-      background-color: #f5f5f5;
-      color: #111;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      display: block;
-      margin: 2rem auto 3rem;
-    }
-    footer {
-      margin-top: 3rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    a {
-      color: #ccc;
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Carla Ruiz Granados</h1>
-    <button id="toggle-lang">English</button>
-  </header>
+<style>
+  body {
+    background-color: #111;
+    color: #f5f5f5;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 2rem;
+    line-height: 1.8;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+  }
+  h1, h2 {
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+  }
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+  blockquote {
+    border-left: 4px solid #888;
+    padding-left: 1rem;
+    color: #ccc;
+    font-style: italic;
+    margin: 1.5rem 0;
+  }
+  button {
+    background-color: #f5f5f5;
+    color: #111;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: block;
+    margin: 2rem auto 3rem;
+  }
+  footer {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #888;
+  }
+  a {
+    color: #ccc;
+    text-decoration: underline;
+  }
+</style>
+
 
 <section id="manifiesto">
   <h2 data-es="La era de la no-profundidad" data-en="The Age of Non-Depth">La era de la no-profundidad</h2>
@@ -151,4 +141,26 @@
      Pero sí necesario.
   </p>
 </section>
+<footer>
+  <p data-es="¿Quieres contactar conmigo? Escríbeme a"
+     data-en="Want to get in touch? Write to me at">
+     ¿Quieres contactar conmigo? Escríbeme a
+     <a href="mailto:carlaruizapple@gmail.com">carla@example.com</a>
+  </p>
+</footer>
+
+<script>
+  const toggleButton = document.getElementById('toggle-lang');
+  let currentLang = 'es';
+
+  toggleButton.addEventListener('click', () => {
+    currentLang = currentLang === 'es' ? 'en' : 'es';
+    toggleButton.textContent = currentLang === 'es' ? 'English' : 'Español';
+    document.querySelectorAll('[data-' + currentLang + ']').forEach(el => {
+      el.textContent = el.getAttribute('data-' + currentLang);
+    });
+  });
+</script>
+</body>
+</html>
 
